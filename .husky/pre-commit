@@ -1,0 +1,2 @@
+# lint the markdown on commit
+npm run lint:md

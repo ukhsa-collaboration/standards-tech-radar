@@ -1,0 +1,55 @@
+name: Publish Guidelines Dispatch
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'docs/**'
+    branches:
+      - main
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  dispatch:
+    # do not run this job on the standards template repo
+    if: github.repository != 'ukhsa-collaboration/standards-template' && github.ref == 'refs/heads/main'
+    name: Dispatch Publish Standards Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate HMAC body + signature
+        id: hmac
+        env:
+          SHARED_HMAC_KEY: ${{ secrets.UKHSA_STANDARDS_PUBLISH_DISPATCH_SHARED_HMAC_KEY }}
+        run: |
+          if [ -z "$SHARED_HMAC_KEY" ]; then
+            echo "Missing SHARED_HMAC_KEY secret"; exit 1
+          fi
+          body="${GITHUB_REPOSITORY}|${GITHUB_SHA}|$(date -u +%s)"
+          sig=$(printf "%s" "$body" | openssl dgst -sha256 -hmac "$SHARED_HMAC_KEY" | sed 's/^.* //')
+          echo "body=$body" >> "$GITHUB_OUTPUT"
+          echo "sig=$sig" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub App token (scoped to standards-org)
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.UKHSA_STANDARDS_PUBLISH_DISPATCH_APP_CLIENT_ID }}
+          private-key: ${{ secrets.UKHSA_STANDARDS_PUBLISH_DISPATCH_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: standards-org
+          permission-actions: write
+
+      - name: Dispatch publish workflow in standards-org
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          echo "Triggering publish workflow in standards-org"
+          gh workflow run publish-guidelines.yml \
+            -R ${{ github.repository_owner }}/standards-org \
+            --ref main \
+            -f upstream_repo="${GITHUB_REPOSITORY}" \
+            -f upstream_sha="${GITHUB_SHA}" \
+            -f hmac_body="${{ steps.hmac.outputs.body }}" \
+            -f hmac_sig="${{ steps.hmac.outputs.sig }}"

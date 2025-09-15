@@ -1,0 +1,33 @@
+{
+  "name": "standards-template",
+  "version": "0.0.1",
+  "description": "UKHSA standards template repository for teams to create their own standards documentation.",
+  "type": "module",
+  "scripts": {
+    "fmt:md": "remark . --ext .md --output",
+    "lint:md": "remark . --ext .md --frail",
+    "prepare": "husky && git config commit.Template .gitmessage",
+    "start": "node src/serve.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukhsa-collaboration/standards-template.git"
+  },
+  "homepage": "https://github.com/ukhsa-collaboration/standards-template",
+  "license": "MIT",
+  "engines": {
+    "npm": "10",
+    "node": "22"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7",
+    "remark-cli": "^12.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-renumber-references": "^3.0.0",
+    "remark-preset-lint-consistent": "^6.0.1",
+    "remark-preset-lint-recommended": "^7.0.1"
+  }
+}
