@@ -13,8 +13,7 @@ permissions:
 
 jobs:
   dispatch:
-    # do not run this job on the standards template repo
-    if: github.repository != 'ukhsa-collaboration/standards-template' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     name: Dispatch Publish Standards Workflow
     runs-on: ubuntu-latest
     steps:

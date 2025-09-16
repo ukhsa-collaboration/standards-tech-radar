@@ -1,7 +1,7 @@
 {
-  "name": "standards-template",
+  "name": "standards-tech-radar",
   "version": "0.0.1",
-  "description": "UKHSA standards template repository for teams to create their own standards documentation.",
+  "description": "UKHSA technology radar documentation.",
   "type": "module",
   "scripts": {
     "fmt:md": "remark . --ext .md --output",
@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ukhsa-collaboration/standards-template.git"
+    "url": "git+https://github.com/ukhsa-collaboration/standards-tech-radar.git"
   },
-  "homepage": "https://github.com/ukhsa-collaboration/standards-template",
+  "homepage": "https://github.com/ukhsa-collaboration/standards-tech-radar",
   "license": "MIT",
   "engines": {
     "npm": "10",

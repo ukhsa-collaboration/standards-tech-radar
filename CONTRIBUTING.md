@@ -1,11 +1,11 @@
-# Contributing to UKHSA Organisational Standards
+# Contributing to UKHSA Technology Radar
 
-Thank you for your interest in contributing to the UKHSA Organisational Standards!
-This repository contains a template for creating standards documentation.
+Thank you for your interest in contributing to the UKHSA Technology Radar!
+It contains guidance on approved technology teams should adopt during development of software-based solutions.
 
 ## Table of Contents
 
-- [Contributing to UKHSA Organisational Standards][1]
+- [Contributing to UKHSA Technology Radar][1]
   - [Table of Contents][2]
   - [Code of Conduct][3]
   - [Getting Started][4]
@@ -47,15 +47,15 @@ If you're an external contributor make sure to [fork this project first][26]
 If you are a member of the `ukhsa-collaboration` GitHub organisation, you can clone the repository directly:
 
 ```bash
-git clone https://github.com/ukhsa-collaboration/standards-template.git
-cd standards-template
+git clone https://github.com/ukhsa-collaboration/standards-tech-radar.git
+cd standards-tech-radar
 ```
 
 Otherwise, if you are an external contributor, you can clone your fork:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/standards-template.git
-cd standards-template
+git clone https://github.com/YOUR-USERNAME/standards-tech-radar.git
+cd standards-tech-radar
 ```
 
 #### 3. Install dependencies
@@ -64,7 +64,8 @@ Before you begin, ensure you have the following installed:
 
 | Tool | Version | Description |
 | - | - | - |
-| [Node.js][27] / npm | `v22 Latest LTS` | Required for packaging and testing spectral rules. |
+| [Node.js][27] / npm | `v22 Latest LTS` | Required for testing, formatting, local publishing, and linting. |
+| [Docker][28] | Not tested, but a recent version is best | Required for local publishing via `npm run start`. |
 
 You can install node using your system's package manager or download them from the [respective website][27].
 
@@ -81,24 +82,25 @@ install the required dependencies with the following command:
 npm install
 ```
 
+You can install docker using your system's package manager or
+[follow the appropriate instructions for your system here][29].
+
 ### Understanding the Repository Structure
 
-This repository is a template repository and therefore it contains boilerplate files for people to build their
-documentation on top of.
 In the root of the repository exist a number of configuration files for linting etc.
-The main directory where users should add their documentation after creating their own repository from this template is
-the `docs/` directory which contains two placeholder files at present.
+The main directory where the documentation is stored is the `docs/` directory.
 
 ## Contributing Process
 
 ### Finding Issues to Work On
 
-- Check the [Issues][28] section for open tasks
+- Check the [Issues][30] section for open tasks
 - Look for issues tagged with `good first issue` if you're new to the project
 
 ### Signed Commits
 
-All commits to this repository **MUST** be signed with a GPG key to verify the committer's identity. This helps ensure the security and integrity of the codebase.
+All commits to this repository **MUST** be signed with a GPG key to verify the committer's identity.
+This helps ensure the security and integrity of the codebase.
 
 To set up signed commits:
 
@@ -136,13 +138,13 @@ git commit -m "Your commit message"
 git commit -S -m "Your commit message"
 ```
 
-For more information, see GitHub's documentation on [signing commits][29].
+For more information, see GitHub's documentation on [signing commits][31].
 
 ### Opening New Issues
 
 Before opening a new issue:
 
-1. **[Search existing issues][30]** to avoid duplicates
+1. **[Search existing issues][32]** to avoid duplicates
 1. **Use issue templates** if available
 1. **Be clear and specific** about:
    - What needs to be changed/added
@@ -167,7 +169,7 @@ Before opening a new issue:
 
 1. **Commit your changes** with clear commit messages and sign them (see [Signed Commits][12]):
 
-We follow the [Conventional Commits][31] specification for commit messages. This provides a standardised format that makes the commit history more readable and enables automated tools for versioning and changelog generation.
+We follow the [Conventional Commits][33] specification for commit messages. This provides a standardised format that makes the commit history more readable and enables automated tools for versioning and changelog generation.
 
 The commit message should be structured as follows:
 
@@ -198,7 +200,7 @@ Footer:
 | `test` | Adding or correcting tests | None |
 
 > [!NOTE]
-> A commit that has a footer `BREAKING CHANGE:`, or appends a `!` after the type, introduces a breaking API change (correlating with [`MAJOR`][32] in Semantic Versioning). A BREAKING CHANGE can be part of commits of any *type*.
+> A commit that has a footer `BREAKING CHANGE:`, or appends a `!` after the type, introduces a breaking API change (correlating with [`MAJOR`][34] in Semantic Versioning). A BREAKING CHANGE can be part of commits of any *type*.
 
 #### Example
 
@@ -220,7 +222,7 @@ Resolves issue #123"
 
    If you are an external contributor, you will need to add the upstream repository as a remote, see [fork the repository][6] for more details.
 
-   Make sure to keep your fork up to date with the main repository by [syncing your fork][33] with the upstream repository.
+   Make sure to keep your fork up to date with the main repository by [syncing your fork][35] with the upstream repository.
 
    If you are a member of the `ukhsa-collaboration` GitHub organisation, you can update your branch with the latest from `main` with the following commands:
 
@@ -230,11 +232,11 @@ Resolves issue #123"
    ```
 
    > [!NOTE]
-   > This repository maintains a [linear commit history][34].
+   > This repository maintains a [linear commit history][36].
    >
-   > Always use [`rebase`][35] instead of `merge` when keeping your branch up to date with the `main` branch.
+   > Always use [`rebase`][37] instead of `merge` when keeping your branch up to date with the `main` branch.
 
-1. **[link PR to issue][36]** if you are solving one.
+1. **[link PR to issue][38]** if you are solving one.
 
 1. **Push your changes** to your branch/fork:
 
@@ -258,9 +260,9 @@ Resolves issue #123"
 
 1. **Create a Pull Request** from your branch/fork to the main repository
 
-   if you are a member of the `ukhsa-collaboration` GitHub organisation, you can create a [pull request][37] directly from your branch.
+   if you are a member of the `ukhsa-collaboration` GitHub organisation, you can create a [pull request][39] directly from your branch.
 
-   If you are an external contributor, you can create a [pull request from your fork][38] to the main repository.
+   If you are an external contributor, you can create a [pull request from your fork][40] to the main repository.
 
 1. **Fill in the PR template** with all relevant information
 
@@ -273,7 +275,7 @@ Resolves issue #123"
 
 1. **Prepare for merge**: Before your PR is merged, make sure your branch is up to date with the latest changes from the `main` branch.
 
-   You should be able to do this from the [GitHub UI][39] or from the command line.
+   You should be able to do this from the [GitHub UI][41] or from the command line.
 
    If you are an external contributor, you can use the following commands to keep your branch up to date with the `main` branch:
 
@@ -314,46 +316,40 @@ Resolves issue #123"
    ```
 
    > [!NOTE]
-   > This repository maintains a [linear commit history][34].
+   > This repository maintains a [linear commit history][36].
    >
-   > Always use [`rebase`][35] instead of `merge` when keeping your branch up to date with the `main` branch (see previous step).
+   > Always use [`rebase`][37] instead of `merge` when keeping your branch up to date with the `main` branch (see previous step).
 
 1. **Merge the PR**: Once approved and all status checks have passed, including the branch being up to date with main, you can merge your pull request. Only users with `write` or `admin` permissions on the repository can trigger this action. If you're an external contributor, a maintainer may need to do this for you.
 
-1. Congratulations! 🎉🎉 You've successfully contributed to the UKHSA Organisational standards, any documentation changes will be automatically deployed to the [UKHSA Organisational standards][40] site.
+1. Congratulations! 🎉🎉 You've successfully contributed to the UKHSA Organisational standards, any documentation changes will be automatically deployed to the [UKHSA Organisational standards][42] site.
 
 ## Development Guidelines
 
 ### Documentation Standards
 
 - Write in clear, concise language suitable for technical audiences.
-- Use [RFC2119][41] keywords (**MUST**, **SHOULD**, **MAY**, etc.) correctly to indicate requirement levels.
+- Use [RFC2119][43] keywords (**MUST**, **SHOULD**, **MAY**, etc.) correctly to indicate requirement levels.
 - Include practical examples where appropriate.
 - Follow Markdown best practices for formatting.
 
 ## Viewing the Guidelines Locally
 
-It's not much use to see the template files in the `docs/` directory given they intentionally have very little content,
-however, you can run this command to locally view them:
+You can view your docs in the `docs/` directory by running this command:
 
 ```bash
-npm run serve
+npm run start
 ```
 
 This uses docker to host your docs under the hood.
-After running this script you can view your docs by going to [http://localhost:8080/your-standards/][9], replacing
-`your-standards` with the path you specified previously.
-This script will automatically work out the path based on the 11ty data config file in `docs/`.
+After running this script you can view your docs by going to [http://localhost:8080/tech-radar/][9].
 
 While this script is running it will notice when files change and update them so you can see how they look live.
 
 ## Documentation Deployment
 
-This is a template repository so no documentation is published from this repository.
-
 A GitHub action exists in the workflows dir which will trigger a deployment of the main `standards-org` repository on
-merges to the `main` branch, however, it is gated so that it doesn't run on this repository and will therefore only run
-on repositories created from this template.
+merges to the `main` branch.
 
 Thank you for contributing to improving engineering standards, guidelines and best practices across the UKHSA!
 
@@ -384,17 +380,19 @@ Thank you for contributing to improving engineering standards, guidelines and be
 [25]: ./CODE_OF_CONDUCT.md
 [26]: https://help.github.com/articles/fork-a-repo/
 [27]: https://nodejs.org/en/download/
-[28]: https://github.com/ukhsa-collaboration/standards-org/issues
-[29]: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
-[30]: https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments
-[31]: https://www.conventionalcommits.org/
-[32]: http://semver.org/#summary
-[33]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
-[34]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-linear-history
-[35]: https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
-[36]: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
-[37]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
-[38]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
-[39]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch
-[40]: https://ukhsa-collaboration.github.io/standards-org/
-[41]: https://datatracker.ietf.org/doc/html/rfc2119
+[28]: https://www.docker.com
+[29]: https://docs.docker.com/engine/install/
+[30]: https://github.com/ukhsa-collaboration/standards-org/issues
+[31]: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
+[32]: https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments
+[33]: https://www.conventionalcommits.org/
+[34]: http://semver.org/#summary
+[35]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+[36]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-linear-history
+[37]: https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
+[38]: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
+[39]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+[40]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
+[41]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch
+[42]: https://ukhsa-collaboration.github.io/standards-org/
+[43]: https://datatracker.ietf.org/doc/html/rfc2119
