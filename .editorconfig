@@ -11,5 +11,9 @@ trim_trailing_whitespace = true
 charset = utf-8
 indent_size = 2
 
+[docs/**/*.md]
+# turn off max line length on docs markdown files because line breaks have meaning in the docs when rendered by 11ty
+max_line_length = off
+
 [*.js]
 max_line_length = 88
