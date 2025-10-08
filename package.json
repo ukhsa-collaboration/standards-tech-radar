@@ -16,7 +16,7 @@
   "homepage": "https://github.com/ukhsa-collaboration/standards-tech-radar",
   "license": "MIT",
   "engines": {
-    "npm": "10",
+    "npm": ">=10",
     "node": "22"
   },
   "devDependencies": {
