@@ -22,12 +22,13 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "dotenv": "^17.2.3",
     "husky": "^9.1.7",
     "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
-    "remark-renumber-references": "^3.0.0",
     "remark-preset-lint-consistent": "^6.0.1",
-    "remark-preset-lint-recommended": "^7.0.1"
+    "remark-preset-lint-recommended": "^7.0.1",
+    "remark-renumber-references": "^3.0.0"
   }
 }
