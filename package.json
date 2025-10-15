@@ -4,6 +4,7 @@
   "description": "UKHSA technology radar documentation.",
   "type": "module",
   "scripts": {
+    "fetch:leanix": "node src/fetchFromLeanIX.js && remark docs/leanIX.md --output --silent",
     "fmt:md": "remark . --ext .md --output",
     "lint:md": "remark . --ext .md --frail",
     "prepare": "husky && git config commit.Template .gitmessage",
