@@ -20,8 +20,8 @@
     "node": "22"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
     "husky": "^9.1.7",
     "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",
